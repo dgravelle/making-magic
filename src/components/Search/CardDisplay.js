@@ -14,9 +14,9 @@ class CardDisplay extends React.Component {
 
     render() {
         return (
-            <div style={styles['card-container']}>
+            <div className="card-container">
                 <div className="img-container--card">
-                    <img src={this.props.card.imageUrl} />
+                    <img src={this.props.card.imageUrl} role="presentation"/>
                     <p>{this.props.imageUrl}</p>
                 </div>
                 <div className="card-info">

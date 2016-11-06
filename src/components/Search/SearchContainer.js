@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import SearchForm from './SearchForm';
-
+import SearchResults from './SearchResults';
 
 class SearchContainer extends React.Component {
     constructor(props) {
@@ -63,7 +63,6 @@ class SearchContainer extends React.Component {
         let textOptions = this.state.textOptions;
         let colorQuery = '';
         let textOptionsQuery = '';
-        let query = this.state.query;
 
         for (let i in colors) {
             if (colors.hasOwnProperty(i)) {
@@ -116,9 +115,13 @@ class SearchContainer extends React.Component {
                     handleTextQuery={this.handleTextQuery}
                     handleTextOptions={this.handleTextOptions}
                 />
+                <SearchResults
+                    add={this.props.addToDeck}
+                    results={this.state.results}
+                />
             </div>
         )
     }
- }
+}
 
 export default SearchContainer;

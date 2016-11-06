@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchContainer from './components/Search/SearchContainer';
+import DeckEditor from './components/Decks/DeckEditor';
 import logo from './logo.svg';
 import './App.scss';
 
@@ -11,7 +11,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <SearchContainer />
+        <div className="deck-editor-container">
+            <DeckEditor />
+        </div>
       </div>
     );
   }

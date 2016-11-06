@@ -158,7 +158,7 @@ class SearchForm extends React.Component {
                                     className="mana-checkbox"
                                     onChange={this.props.toggleColor}
                                     type="checkbox"
-                                    value="red"
+                                    value="green"
                                 />
                                 <i className="ms ms-g" style={green}></i>
                             </label>

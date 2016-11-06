@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchContainer from '../Search/SearchContainer.js';
 import DeckView from './DeckView.js';
+import DeckStats from './DeckStats.js';
 
 
 class DeckEditor extends React.Component {
@@ -58,6 +59,9 @@ class DeckEditor extends React.Component {
                     <DeckView
                         deckList={this.state.deckList}
                         />
+                </section>
+                <section className="col-3">
+                    <DeckStats cards={this.state.deckList} />
                 </section>
             </main>
         )

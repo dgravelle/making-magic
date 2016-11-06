@@ -35,7 +35,6 @@ class SearchContainer extends React.Component {
         newState.query = value;
 
         this.setState(newState);
-        console.log(this.state);
     }
 
     handleTextOptions(e) {
@@ -86,11 +85,7 @@ class SearchContainer extends React.Component {
             }
         }
 
-        console.log(textOptionsQuery);
-
         let apiUrl = `https://api.magicthegathering.io/v1/cards?colors="${colorQuery}"${textOptionsQuery}&pageSize=10`;
-
-        console.log(apiUrl);
 
         axios.get(apiUrl).then(cards => {
             var results = [];
@@ -101,7 +96,6 @@ class SearchContainer extends React.Component {
 
             });
 
-            console.log(results);
             this.setState({ results: results });
         });
     }

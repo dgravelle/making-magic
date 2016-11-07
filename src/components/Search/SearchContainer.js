@@ -85,7 +85,7 @@ class SearchContainer extends React.Component {
             }
         }
 
-        let apiUrl = `https://api.magicthegathering.io/v1/cards?colors="${colorQuery}"${textOptionsQuery}&pageSize=10`;
+        let apiUrl = `https://api.magicthegathering.io/v1/cards?colors="${colorQuery}"${textOptionsQuery}`;
 
         axios.get(apiUrl).then(cards => {
             var results = [];

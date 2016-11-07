@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import DeckEditor from './components/Decks/DeckEditor';
-// import logo from './logo.svg';
 import './App.scss';
 
 class App extends Component {

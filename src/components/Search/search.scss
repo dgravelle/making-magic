@@ -1,8 +1,8 @@
 .search-container {
     margin-bottom: 8px;
     min-width: 320px;
-    width: 25%;
     padding: 8px;
+    position: relative;
 }
 
 .colors-container,
@@ -12,9 +12,6 @@
     justify-content: space-between;
     margin-top: 24px;
 
-    .form-group {
-        display: inline;
-    }
 }
 
 .search-input {
@@ -23,4 +20,10 @@
 
 .sr-only {
     display: none;
+}
+
+.results-container {
+    position: absolute;
+    height: 100%;
+    overflow-y: auto;
 }

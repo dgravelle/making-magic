@@ -1,8 +1,12 @@
 import React from 'react';
+import Accordion from '../Accordion/Accordion';
+import './DeckView.scss';
 
 class DeckView extends React.Component {
     constructor(props) {
         super(props)
+
+        this.toggleEl = this.toggleEl.bind(this);
 
         this.state = {
             sort: {}
@@ -27,6 +31,10 @@ class DeckView extends React.Component {
         this.setState(currentSort);
     }
 
+    toggleEl(el) {
+        console.log(el.target.class);
+    }
+
 
     render() {
         let allCards = [];
@@ -38,15 +46,10 @@ class DeckView extends React.Component {
                 cards.push(<li key={card.id}>{card.name}</li>);
             })
 
+            let cardList = (<ul>{cards}</ul>);
+
             allCards.push(
-                <div key={type} className="accordion">
-                    <div className="accordion-title">
-                        <span>{type}</span>
-                    </div>
-                    <div className="accordion-title">
-                        <ul>{cards}</ul>
-                    </div>
-                </div>
+                <Accordion key={type} title={type} content={cardList} />
             );
         }
 

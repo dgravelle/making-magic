@@ -1,0 +1,20 @@
+.accordion-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .toggle-caret {
+        transform: rotate(90deg);
+    }
+}
+
+.accordion-body {
+    opacity: 1;
+    display: inherit;
+    transition: opacity 0.4s ease;
+}
+
+.accordion-body.closed {
+    opacity: 0;
+    display: none;
+}

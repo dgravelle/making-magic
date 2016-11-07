@@ -1,13 +1,6 @@
 import React from 'react';
 import CardDisplay from './CardDisplay.js';
 
-const styles = {
-    container: {
-        overflow: 'scroll',
-        height: '100%'
-    }
-}
-
 class SearchResults extends React.Component {
     constructor(props) {
         super(props)
@@ -23,7 +16,7 @@ class SearchResults extends React.Component {
         let results = [];
 
         return (
-            <div className="results-container" style={styles.container}>
+            <div className="results-container">
                 {this.props.results.map(card => {
                     return (
                         <CardDisplay

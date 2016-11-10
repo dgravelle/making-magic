@@ -1,5 +1,5 @@
 import React from 'react';
-import './search.scss';
+import './Search.less';
 import '../../stylesheets/Mana-master/css/mana.css';
 
 var ManaIcon = function() {
@@ -13,7 +13,6 @@ var ManaIcon = function() {
 
 const white = new ManaIcon();
 white.background = 'rgb(248, 246, 216)';
-
 
 const blue = new ManaIcon();
 blue.background = 'rgb(193, 215, 233)';

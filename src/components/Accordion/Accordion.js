@@ -1,5 +1,5 @@
 import React from 'react';
-import './Accordion.scss';
+import './Accordion.less';
 
 class Accordion extends React.Component {
     constructor() {

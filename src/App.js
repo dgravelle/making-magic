@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DeckEditor from './components/Decks/DeckEditor';
-import './App.scss';
+import './App.less';
 
 class App extends Component {
   render() {

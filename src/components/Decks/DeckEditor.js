@@ -49,7 +49,7 @@ class DeckEditor extends React.Component {
 
     render() {
         return(
-            <main className="row deckbuilder-container">
+            <main className="deckbuilder-container">
                 <section className="col-3">
                     <SearchContainer
                         addToDeck={this.add}

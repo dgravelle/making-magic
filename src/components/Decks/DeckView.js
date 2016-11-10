@@ -1,6 +1,6 @@
 import React from 'react';
 import Accordion from '../Accordion/Accordion';
-import './DeckView.scss';
+import './DeckView.less';
 
 class DeckView extends React.Component {
     constructor(props) {

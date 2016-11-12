@@ -1,4 +1,5 @@
 import React from 'react';
+import Accordion from '../Accordion/Accordion';
 import './CardDisplay.less';
 
 class CardDisplay extends React.Component {
@@ -14,17 +15,18 @@ class CardDisplay extends React.Component {
 
 
     render() {
+        const details = (
+            <div className="card-info">
+                <h3 className="card-info__name">  {this.props.card.name}</h3>
+                <p className="card-info__text">{this.props.card.text}</p>
+            </div>);
+
         return (
             <div className="card-container">
                 <div className="img-container--card">
                     <img src={this.props.card.imageUrl} role="presentation"/>
-                    <p>{this.props.imageUrl}</p>
                 </div>
-                <div className="card-info">
-                    <h3 className="card-info__name">  {this.props.card.name}</h3>
-                    <p className="card-info__text">{this.props.card.text}</p>
-
-                </div>
+                <Accordion title="Details" content={details} />
                 <div className="card-info__action">
                     <button className="add-card" onClick={this.handleClick}>+</button>
                 </div>

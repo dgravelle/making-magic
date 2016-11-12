@@ -3,7 +3,6 @@ import ChartistGraph from 'react-chartist';
 
 class DeckStats extends React.Component {
     componentWillReceiveProps() {
-        console.log(this.props);
     }
 
     render() {
@@ -14,9 +13,7 @@ class DeckStats extends React.Component {
 
         if(Object.keys(this.props).length > 0)
             this.props.cards.forEach(card => {
-                console.log(card);
                 card.types.forEach(type => {
-                    console.log(type);
                     type = type.toLowerCase();
 
                     if (!data.labels.includes(type))
@@ -29,7 +26,6 @@ class DeckStats extends React.Component {
                 });
             });
 
-            console.log(data);
 
         var options = {
             labelInterpolationFnc: function(value) {
@@ -40,8 +36,8 @@ class DeckStats extends React.Component {
         var responsiveOptions = [
             [
                 'screen and (min-width: 640px)', {
-                    chartPadding: 30,
-                    labelOffset: 100,
+                    chartPadding: 20,
+                    labelOffset: 40,
                     labelDirection: 'explode',
                     labelInterpolationFnc: function(value) {
                         return value;
@@ -50,7 +46,7 @@ class DeckStats extends React.Component {
             ],
             [
                 'screen and (min-width: 1024px)', {
-                    labelOffset: 80,
+                    labelOffset: 40,
                     chartPadding: 20
                 }
             ]

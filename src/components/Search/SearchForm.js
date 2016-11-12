@@ -7,8 +7,7 @@ var ManaIcon = function() {
     this.color = 'black';
     this.padding = '4px';
     this.transition = 'transition: all .2s ease-in-out';
-    this.display = 'inline';
-    this.marginTop = '8px';
+    this.display = 'inline-block';
 }
 
 const white = new ManaIcon();
@@ -46,8 +45,8 @@ class SearchForm extends React.Component {
 
     render() {
         return (
-            <form id="search" className="search" name="search">
-                <div className="form-group">
+            <form id="search" className="card-search" name="search">
+                <div className="form-group--search">
                     <label htmlFor="searchText" className="sr-only">
                         Enter search terms
                     </label>
@@ -61,16 +60,17 @@ class SearchForm extends React.Component {
 
                     <input
                         id="searchBtn"
-                        className="btn btn--search"
+                        className="search-btn"
                         onClick={this.props.initSearch}
                         type="button"
                         value="Search"
                     />
                 </div>
-                <div className="searchOptions">
+                <div className="search-options">
                     <div className="text-options-container">
                         <div className="form-group">
-                            <label htmlFor="name" className="text-options__label">
+                            <label htmlFor="name"
+                                className="text-options__label">
                                 <input
                                     className="text-options__checkbox"
                                     onChange={this.props.handleTextOptions}
@@ -107,6 +107,7 @@ class SearchForm extends React.Component {
                         <div className="form-group">
                             <label htmlFor="checkboxW" className="mana-label">
                                 <input
+                                    id="checkboxW"
                                     className="mana-checkbox"
                                     onChange={this.props.toggleColor}
                                     type="checkbox"
@@ -118,6 +119,7 @@ class SearchForm extends React.Component {
                         <div className="form-group">
                             <label htmlFor="checkboxU" className="mana-label">
                                 <input
+                                    id="checkboxU"
                                     className="mana-checkbox"
                                     onChange={this.props.toggleColor}
                                     type="checkbox"
@@ -129,6 +131,7 @@ class SearchForm extends React.Component {
                         <div className="form-group">
                             <label htmlFor="checkboxB" className="mana-label">
                                 <input
+                                    id="checkboxB"
                                     name="checkboxB"
                                     className="mana-checkbox"
                                     onChange={this.props.toggleColor}
@@ -141,6 +144,7 @@ class SearchForm extends React.Component {
                         <div className="form-group">
                             <label htmlFor="checkboxR" className="mana-label">
                                 <input
+                                    id="checkboxR"
                                     name="checkboxR"
                                     className="mana-checkbox"
                                     onChange={this.props.toggleColor}
@@ -151,8 +155,9 @@ class SearchForm extends React.Component {
                             </label>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="checkboxR" className="mana-label">
+                            <label htmlFor="checkboxG" className="mana-label">
                                 <input
+                                    id="checkboxG"
                                     name="checkboxG"
                                     className="mana-checkbox"
                                     onChange={this.props.toggleColor}

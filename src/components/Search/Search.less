@@ -1,9 +1,35 @@
-@import '../../less/index.less';
+@import '../../less/variables/variables.less';
 
 .search-container {
-    margin-bottom: 8px;
-    padding: 8px;
+    height: 100%;
     position: relative;
+}
+
+form.card-search {
+    background-color: @grey-200;
+    padding: 12px;
+}
+
+form.card-search
+.form-group--search {
+    background-color: @grey-200;
+    display: flex;
+    position: relative;
+
+    .search-input {
+        flex: 3 1;
+        border: 1px solid @grey-300;
+        border-right: 0;
+    }
+
+    .search-btn {
+        background-color: @blue-800;
+        border: 1px solid @blue-800;
+        color: white;
+        flex: 1;
+        font-size: @base-font-size;
+        padding: 8px 12px;
+    }
 }
 
 .colors-container,
@@ -14,17 +40,11 @@
     margin-top: 24px;
 }
 
-.search-input {
-
-}
-
-.sr-only {
-    display: none;
-}
-
 .results-container {
-    position: absolute;
-    height: auto;
-    max-height: 600px;
+    border: 1px solid @grey-200;
+    height: 100vh;
     overflow-y: auto;
+    padding-top: 32px;
+    position: absolute;
+    z-index: -1;
 }

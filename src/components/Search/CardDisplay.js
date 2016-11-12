@@ -1,4 +1,5 @@
 import React from 'react';
+import './CardDisplay.less';
 
 class CardDisplay extends React.Component {
     constructor(props) {
@@ -25,7 +26,7 @@ class CardDisplay extends React.Component {
 
                 </div>
                 <div className="card-info__action">
-                    <button onClick={this.handleClick}>+</button>
+                    <button className="add-card" onClick={this.handleClick}>+</button>
                 </div>
             </div>
         )

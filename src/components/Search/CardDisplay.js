@@ -23,14 +23,13 @@ class CardDisplay extends React.Component {
 
         return (
             <div className="card-container">
-                <div className="img-container--card">
-                    <img src={this.props.card.imageUrl} role="presentation"/>
+                <div className="card-img-container">
+                    <img className="card-img" src={this.props.card.imageUrl} role="presentation"/>
                 </div>
+                <button className="add-card" onClick={this.handleClick}>+</button>
                 <Accordion title="Details" content={details} />
-                <div className="card-info__action">
-                    <button className="add-card" onClick={this.handleClick}>+</button>
-                </div>
             </div>
+
         )
     }
 }

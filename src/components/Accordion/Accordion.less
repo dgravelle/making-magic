@@ -1,11 +1,12 @@
 @import '../../less/variables/variables.less';
 
 .accordion {
-    background-color: @grey-200;
-    padding: 8px 0;
+
 }
 
 .accordion-title {
+    background-color: @grey-300;
+    padding: 8px 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -16,9 +17,14 @@
 }
 
 .accordion-body {
+    background-color: @grey-100;
     opacity: 1;
     display: inherit;
     transition: opacity 0.4s ease;
+
+    .card-info {
+        display: inline-block;
+    }
 }
 
 .accordion-body.closed {

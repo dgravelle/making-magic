@@ -1,7 +1,8 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
+const mtg = require('mtgsdk');
 
 class SearchContainer extends React.Component {
     constructor(props) {
@@ -11,6 +12,8 @@ class SearchContainer extends React.Component {
         this.initSearch = this.initSearch.bind(this);
         this.handleTextQuery = this.handleTextQuery.bind(this);
         this.handleTextOptions = this.handleTextOptions.bind(this);
+        this.processColorQuery = this.processColorQuery.bind(this);
+        this.processTextQuery = this.processTextQuery.bind(this);
 
         this.state = {
             colors: {
@@ -55,49 +58,85 @@ class SearchContainer extends React.Component {
         this.setState(currentState);
     }
 
-    initSearch(e) {
-        e.preventDefault();
-
+    processColorQuery() {
         let colors = this.state.colors;
-        let textOptions = this.state.textOptions;
         let colorQuery = '';
-        let textOptionsQuery = '';
 
         for (let i in colors) {
             if (colors.hasOwnProperty(i)) {
                 if (colors[i]) {
                     if (colorQuery.length > 0) {
-                        colorQuery += `,${i}`;
+                        console.log(colorQuery);
+                        let temp = colorQuery.substr(colors[i]);
+                        temp = temp.slice(0,temp.length - 1);
+
+                        colorQuery = temp;
+                        colorQuery = `"${temp},${i}"`;
+
                     }
                     else {
-                        colorQuery = `${i}`;
+                        colorQuery = `"${i}"`;
                     }
                 }
             }
         }
+        console.log(colorQuery);
+        return colorQuery;
+    }
 
+    processTextQuery() {
+        let textOptions = this.state.textOptions;
 
         for (let i in textOptions) {
             if (textOptions.hasOwnProperty(i)) {
                 if(textOptions[i]) {
-                    textOptionsQuery += `&${i}=${this.state.query}`;
+                    let result = {};
+
+                    result[`${i}`] = this.state.query;
+
+                    return result;
                 }
             }
         }
 
-        let apiUrl = `https://api.magicthegathering.io/v1/cards?colors="${colorQuery}"${textOptionsQuery}`;
 
-        axios.get(apiUrl).then(cards => {
-            var results = [];
+    }
 
-            cards.data.cards.forEach(card => {
+    initSearch(e) {
+        e.preventDefault();
 
-                results.push(card);
+        let colors = this.processColorQuery();
+        let textOptions = this.processTextQuery();
+        let textOptionsKey = '';
+        let fullQuery = {}
+
+        if (textOptions) {
+            textOptionsKey = Object.keys(textOptions)[0];
+            fullQuery = {
+                [textOptionsKey] : textOptions[textOptionsKey],
+                colors: colors
+            }
+        }
+        else {
+            fullQuery = {
+                colors: colors
+            }
+        }
+
+        mtg.card.where(fullQuery)
+            .then(cards => {
+                var results = [];
+
+                cards.forEach(card => {
+                    // console.log(card);
+                    if(card.imageUrl)
+                        results.push(card);
+                });
+
+                this.setState({ results: results });
 
             });
 
-            this.setState({ results: results });
-        });
     }
 
     render() {

@@ -1,29 +1,7 @@
 import React from 'react';
 import './Search.less';
+import './ManaSymbols.less';
 import '../../stylesheets/Mana-master/css/mana.css';
-
-var ManaIcon = function() {
-    this.borderRadius = '50%';
-    this.color = 'black';
-    this.padding = '4px';
-    this.transition = 'transition: all .2s ease-in-out';
-    this.display = 'inline-block';
-}
-
-const white = new ManaIcon();
-white.background = 'rgb(248, 246, 216)';
-
-const blue = new ManaIcon();
-blue.background = 'rgb(193, 215, 233)';
-
-const black = new ManaIcon();
-black.background = 'rgb(186, 177, 171)';
-
-const red = new ManaIcon();
-red.background = 'rgba(228,153,119,1)';
-
-const green = new ManaIcon();
-green.background = 'rgba(172,211,172,1)';
 
 class SearchForm extends React.Component {
     constructor(props) {
@@ -72,6 +50,7 @@ class SearchForm extends React.Component {
                             <label htmlFor="name"
                                 className="text-options__label">
                                 <input
+                                    id="name"
                                     className="text-options__checkbox"
                                     onChange={this.props.handleTextOptions}
                                     type="checkbox"
@@ -83,6 +62,7 @@ class SearchForm extends React.Component {
                         <div className="form-group">
                             <label htmlFor="type" className="text-options__label">
                                 <input
+                                    id="type"
                                     className="text-options__checkbox"
                                     onChange={this.props.handleTextOptions}
                                     type="checkbox"
@@ -94,6 +74,7 @@ class SearchForm extends React.Component {
                         <div className="form-group">
                             <label htmlFor="text" className="text-options__label">
                                 <input
+                                    id="text"
                                     className="text-options__checkbox"
                                     onChange={this.props.handleTextOptions}
                                     type="checkbox"
@@ -113,7 +94,7 @@ class SearchForm extends React.Component {
                                     type="checkbox"
                                     value="white"
                                 />
-                                <i className="ms ms-w" style={white}></i>
+                                <i className="ms ms-w"></i>
                             </label>
                         </div>
                         <div className="form-group">
@@ -125,7 +106,7 @@ class SearchForm extends React.Component {
                                     type="checkbox"
                                     value="blue"
                                 />
-                                <i className="ms ms-u" style={blue}></i>
+                                <i className="ms ms-u"></i>
                             </label>
                         </div>
                         <div className="form-group">
@@ -138,7 +119,7 @@ class SearchForm extends React.Component {
                                     type="checkbox"
                                     value="black"
                                 />
-                                <i className="ms ms-u" style={black}></i>
+                                <i className="ms ms-b"></i>
                             </label>
                         </div>
                         <div className="form-group">
@@ -151,7 +132,7 @@ class SearchForm extends React.Component {
                                     type="checkbox"
                                     value="red"
                                 />
-                                <i className="ms ms-r" style={red}></i>
+                                <i className="ms ms-r"></i>
                             </label>
                         </div>
                         <div className="form-group">
@@ -164,7 +145,7 @@ class SearchForm extends React.Component {
                                     type="checkbox"
                                     value="green"
                                 />
-                                <i className="ms ms-g" style={green}></i>
+                                <i className="ms ms-g"></i>
                             </label>
                         </div>
                     </div>

@@ -1,5 +1,7 @@
 import React from 'react';
 import './Accordion.less';
+import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/lib/md';
+
 
 class Accordion extends React.Component {
     constructor() {
@@ -20,13 +22,14 @@ class Accordion extends React.Component {
 
     render() {
         let closed = this.state.open ? '' : ' closed';
+        let arrow = this.state.open ? (<MdArrowDropUp />) : (<MdArrowDropDown />)
 
         return (
             <div className="accordion">
                 <div className="accordion-title" onClick={this.toggle}>
                     <span>{this.props.title}</span>
                     <span onClick={this.toggleEl}>
-                        <img src="../../images/drop-down.svg" role="presentation"/>
+                        {arrow}
                     </span>
                 </div>
                 <div className={`accordion-body ${closed}`}>

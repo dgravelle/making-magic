@@ -12,7 +12,7 @@ class NavBar extends React.Component {
             <nav className="navbar">
                 <div className="navbar-left">
                     <a href="/" className="logo-link">
-                        <i className="ss ss-cmd"></i>
+                        <i className="ss ss-pmtg1"></i>
                     </a>
                 </div>
                 <div className="navbar-right">

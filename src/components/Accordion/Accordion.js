@@ -25,7 +25,9 @@ class Accordion extends React.Component {
             <div className="accordion">
                 <div className="accordion-title" onClick={this.toggle}>
                     <span>{this.props.title}</span>
-                    <span className="toggle-caret" onClick={this.toggleEl}>&gt;</span>
+                    <span onClick={this.toggleEl}>
+                        <img src="../../images/drop-down.svg" role="presentation"/>
+                    </span>
                 </div>
                 <div className={`accordion-body ${closed}`}>
                     {this.props.content}

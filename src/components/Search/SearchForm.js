@@ -23,7 +23,7 @@ class SearchForm extends React.Component {
 
     render() {
         return (
-            <form id="search" className="card-search" name="search">
+            <form id="search" className="card-search" name="search" onSubmit={this.props.initSearch}>
                 <div className="form-group--search">
                     <label htmlFor="searchText" className="sr-only">
                         Enter search terms
@@ -40,7 +40,7 @@ class SearchForm extends React.Component {
                         id="searchBtn"
                         className="search-btn"
                         onClick={this.props.initSearch}
-                        type="button"
+                        type="submit"
                         value="Search"
                     />
                 </div>

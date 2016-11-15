@@ -69,23 +69,30 @@ class SearchContainer extends React.Component {
                 }
             }
         }
-        
+
         return { colors: colorQuery.join(',') };
     }
 
     processTextQuery() {
         let textOptions = this.state.textOptions;
+        let result = {};
 
         for (let i in textOptions) {
             if (textOptions.hasOwnProperty(i)) {
-                if(textOptions[i]) {
-                    let result = {};
+                if (textOptions[i]) {
+
 
                     result[`${i}`] = this.state.query;
 
                     return result;
                 }
             }
+        }
+
+        if (Object.keys(result).length <= 0) {
+            result.name = this.state.query;
+
+            return result;
         }
 
 
@@ -107,7 +114,7 @@ class SearchContainer extends React.Component {
                         results.push(card);
                 });
 
-                this.setState({ results: results });
+                this.setState({ results: results.reverse() });
 
             });
 

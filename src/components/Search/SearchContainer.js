@@ -60,28 +60,17 @@ class SearchContainer extends React.Component {
 
     processColorQuery() {
         let colors = this.state.colors;
-        let colorQuery = '';
+        let colorQuery = [];
 
         for (let i in colors) {
             if (colors.hasOwnProperty(i)) {
                 if (colors[i]) {
-                    if (colorQuery.length > 0) {
-                        console.log(colorQuery);
-                        let temp = colorQuery.substr(colors[i]);
-                        temp = temp.slice(0,temp.length - 1);
-
-                        colorQuery = temp;
-                        colorQuery = `"${temp},${i}"`;
-
-                    }
-                    else {
-                        colorQuery = `"${i}"`;
-                    }
+                    colorQuery.push(i)
                 }
             }
         }
-        console.log(colorQuery);
-        return colorQuery;
+        
+        return { colors: colorQuery.join(',') };
     }
 
     processTextQuery() {
@@ -107,28 +96,13 @@ class SearchContainer extends React.Component {
 
         let colors = this.processColorQuery();
         let textOptions = this.processTextQuery();
-        let textOptionsKey = '';
-        let fullQuery = {}
-
-        if (textOptions) {
-            textOptionsKey = Object.keys(textOptions)[0];
-            fullQuery = {
-                [textOptionsKey] : textOptions[textOptionsKey],
-                colors: colors
-            }
-        }
-        else {
-            fullQuery = {
-                colors: colors
-            }
-        }
+        let fullQuery = Object.assign({}, textOptions, colors);
 
         mtg.card.where(fullQuery)
             .then(cards => {
                 var results = [];
 
                 cards.forEach(card => {
-                    // console.log(card);
                     if(card.imageUrl)
                         results.push(card);
                 });

@@ -1,7 +1,6 @@
 import React, { PropTypes as T } from 'react'
 import {Button} from 'react-bootstrap'
 import AuthService from '../../../utils/AuthService'
-// import styles from './styles.module.less'
 
 export class Home extends React.Component {
   static contextTypes = {
@@ -14,8 +13,6 @@ export class Home extends React.Component {
 
   constructor(props, context) {
     super(props, context)
-
-    console.log(props);
 
     this.state = {
       profile: props.auth.getProfile()
@@ -33,10 +30,13 @@ export class Home extends React.Component {
 
   render(){
     const { profile } = this.state
+
+    console.log(profile);
+    
     return (
       <div>
         <h2>Home</h2>
-        <p>Welcome {profile.name}!</p>
+        <p>Welcome {profile.email}!</p>
         <Button onClick={this.logout.bind(this)}>Logout</Button>
       </div>
     )

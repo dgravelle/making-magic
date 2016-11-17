@@ -1,14 +1,21 @@
-import React from 'react';
+import  React, { PropTypes as T } from 'react';
 import { Link } from 'react-router';
 import './NavBar.less';
+import AuthService from '../../utils/AuthService';
+
 
 class NavBar extends React.Component {
-    constructor(props) {
-        super(props);
+    static contextTypes = {
+        router: T.object
+      }
 
-    }
+      static propTypes = {
+        location: T.object,
+        auth: T.instanceOf(AuthService)
+      }
 
     render() {
+
         return (
             <nav className="navbar">
                 <div className="navbar-left">
@@ -17,7 +24,8 @@ class NavBar extends React.Component {
                     </Link>
                 </div>
                 <div className="navbar-right">
-                    <button onClick={this.props.showLock} className="btn btn--signup">Sign up</button>
+                    {/* <button onClick={this.props.showLock} className="btn btn--signup">Sign up</button> */}
+                    <a className="btn btn--signup" onClick={this.props.auth.login.bind(this)}>Login</a>
                 </div>
             </nav>
         )

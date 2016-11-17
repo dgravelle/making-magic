@@ -4,6 +4,7 @@ import AuthService from '../../utils/AuthService'
 import Container from './Container'
 import Home from './Home/Home'
 import Login from './Login/Login'
+import DeckBuilder from '../../components/Decks/DeckEditor';
 
 const auth = new AuthService(process.env.AUTH0_CLIENT_ID, process.env.AUTH0_DOMAIN);
 
@@ -20,6 +21,7 @@ export const makeMainRoutes = () => {
       <IndexRedirect to="/home" />
       <Route path="home" component={Home} onEnter={requireAuth} />
       <Route path="login" component={Login} />
+      <Route path="deckbuilder" component={DeckBuilder} />
     </Route>
   )
 }

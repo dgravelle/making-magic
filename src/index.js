@@ -5,14 +5,12 @@ import App from './App';
 import DeckEditor from './components/Decks/DeckEditor';
 import SignUp from './components/Users/SignUp';
 
+import makeRoutes from './routes.js'
 
-ReactDOM.render((
-        <Router history={browserHistory}>
-            <Route path="/" component={App}>
-                <IndexRoute component={DeckEditor} />
-                <Route path="/signup" component={SignUp} />
-            </Route>
-        </Router>
-    ),
-  document.getElementById('root')
-);
+const routes = makeRoutes()
+
+const mountNode = document.querySelector('#root');
+ReactDOM.render(
+  <App history={browserHistory}
+        routes={routes} />,
+mountNode);

@@ -17,7 +17,7 @@ class NavBar extends React.Component {
                     </Link>
                 </div>
                 <div className="navbar-right">
-                    <Link to="/signup" className="btn btn--signup">Sign up</Link>
+                    <button onClick={this.props.showLock} className="btn btn--signup">Sign up</button>
                 </div>
             </nav>
         )

@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+var debug = require('debug')('making-magic');
+var server = require('../server');
+var models = require('models');
+
+server.set('port', process.ENV.PORT || 3001);
+
+models.sequelize.sync().then(function() {
+    var server = server.listen(app.get('port'), function() {
+        console.log('Express server listening on port' + server.address().port');
+        debug('Express server listening on port' + server.address().port);
+    });
+});

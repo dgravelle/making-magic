@@ -1,0 +1,32 @@
+@import '../../less/variables/variables.less';
+@import '../../less/mixins/mixins.less';
+
+.card-container {
+    background-color: @grey-100;
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+    padding: 12px 0 0 0;
+
+
+    .card-img-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    img.card-img {
+        .border-radius(14px);
+        background-color: @grey-100;
+        margin: 0 auto;
+    }
+}
+
+button.add-card {
+    align-self: flex-end;
+    background-color: @orange-400;
+    border: 1px solid @orange-400;
+    font-weight: bold;
+    font-size: @base-font-size;
+    padding: 8px 12px;
+    color: white;
+}

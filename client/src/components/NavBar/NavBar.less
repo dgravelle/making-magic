@@ -1,0 +1,43 @@
+@import '../../less/mixins/mixins.less';
+@import '../../less/variables/variables.less';
+
+.navbar {
+    .box-shadow(0px 2px 3px rgba(0,0,0,0.33));
+    background-color: @grey-800;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: flex-end;
+
+}
+
+
+
+.logo-link {
+    display: inline-block;
+    padding: 0 16px;
+
+    & > i {
+        display: flex;
+        align-items: flex-end;
+        font-size: @base-font-size * 2;
+        color: white;
+    }
+
+}
+
+.btn--signup {
+    color: white;
+    display: inline-block;
+    padding: 12px 16px;
+    font-size: @base-font-size;
+    text-decoration: none;
+}

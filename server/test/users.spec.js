@@ -1,29 +1,34 @@
 var expect = require('expect.js');
-var Sequelize = require('sequelize');
-var sequelize = new Sequelize("postgres://localhost/test_db", {logging: false});
-var models = require('../models')
-var User = models.User;
+var Sequelize = require('sequelize')
+var sequelize = new Sequelize('postgres://localhost/mm_test_db', {logging: false });
 
-var userService = require('../db/userService')(sequelize);
-
-describe('user service', () => {
-    var mockResponse = callback => { return { send: callback }; }
+describe('models/user', () => {
     var newUser = {
         email: 'new@user.com'
     }
 
-    beforeEach(done => {
-        sequelize.sync({ force: true }).then(() => {
-            done();
-        });
-    })
+    beforeEach(() => {
+        return require('../models').sequelize.sync({ force: true });
+    });
 
-    it('should find created users', done => {
-        User.create(newUser).then(res => {
-            userService.getAll({}, mockResponse(data => {
-                expect(data[1].email).to.eql(newUser.email)
+    beforeEach(() => {
+        this.User = require('../models').User;
+    });
+
+    it('should find the user model', () => {
+        expect(this.User).to.be.ok();
+    });
+
+    it('should create a user and find all users', (done) => {
+        this.User.create(newUser).then(res => {
+            this.User.findAll().then(res => {
+                console.log('findall res: ', res);
+                expect(res.length).to.equal(1);
                 done();
-            }))
+            })
         })
-    })
-})
+        .catch(err => {
+            console.log(err);
+        });
+    });
+});

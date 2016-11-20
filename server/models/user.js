@@ -1,9 +1,9 @@
-'use strict'
+'use strict';
 
 module.exports = (sequelize, DataTypes) => {
     let User = sequelize.define('User', {
         id: {
-            type: DataTypes.UUID,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },

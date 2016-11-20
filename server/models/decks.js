@@ -13,16 +13,18 @@ module.exports = function(sequelize, DataTypes) {
         colors: DataTypes.ARRAY(DataTypes.STRING),
         createdAt: DataTypes.DATE,
         updatedAt: DataTypes.DATE
-    }, {
-        associate: models => {
-            Decks.belongsTo(models.User, {
-                onDelete: 'CASCADE',
-                foreignKey: {
-                    allowNull: false
-                }
-            });
-        }
-    });
+    }
+    // {
+    //     associate: models => {
+    //         Decks.belongsTo(models.User, {
+    //             onDelete: 'CASCADE',
+    //             foreignKey: {
+    //                 allowNull: false
+    //             }
+    //         });
+    //     }
+    // }
+);
 
     return Decks;
 };

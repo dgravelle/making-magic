@@ -4,7 +4,6 @@ module.exports = {
   up: function(queryInterface, Sequelize) {
     return queryInterface.createTable('Decks', {
       id: {
-        allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER

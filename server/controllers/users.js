@@ -1,4 +1,4 @@
-var user = require('../models').User;
+var User = require('../models').User;
 
 module.exports = {
     index(req, res) {
@@ -6,7 +6,7 @@ module.exports = {
             return res.status(200).json(users);
         })
         .catch(err => {
-            return res(500).json(err);
+            return res.status(500).json(err);
         });
     },
     show(req, res) {

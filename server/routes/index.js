@@ -1,5 +1,5 @@
 const express = require('express');
-const users = require('../models').User;
+const users = require('../controllers/users');
 
 module.exports = router => {
     router.get('/users', users.index);
@@ -11,4 +11,6 @@ module.exports = router => {
     // router.get('/decks/:id', decks.show);
     // router.post('/decks', decks.create);
     // router.put('/decks', decks.update);
+
+    return router;
 };

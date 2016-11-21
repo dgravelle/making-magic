@@ -17,11 +17,7 @@ app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname, '../client/build')));
 
-
-app.use('/', routes);
-// app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
-// })
+app.use(routes(express.Router()));
 
 app.use((req, res, next) => {
     var err = new Error('Not Found');

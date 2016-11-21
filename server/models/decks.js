@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(sequelize, DataTypes) {
-    var Decks = sequelize.define('Decks', {
+    var Deck = sequelize.define('Deck', {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -26,5 +26,5 @@ module.exports = function(sequelize, DataTypes) {
     }
 );
 
-    return Decks;
+    return Deck;
 };

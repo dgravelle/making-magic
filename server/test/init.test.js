@@ -7,7 +7,7 @@ describe('initiating test db', done => {
         sequelize
             .authenticate()
             .then(err => {
-                console.log('success');
+                console.log('success', err);
                 expect(!err).to.be.ok();
                 done();
             })

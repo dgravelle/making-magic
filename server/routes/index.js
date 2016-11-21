@@ -1,11 +1,13 @@
 const express = require('express');
-const router = express.Router();
-const users = require('./users');
-const decks = require('./decks');
-const cards = require('./cards');
 
-router.use('/users', users);
-router.use('/decks', decks);
-router.use('/cards', cards);
+module.exports = router => {
+    router.get('/users', users.index);
+    router.get('/users/:id', users.show);
+    router.post('/users', users.create);
+    router.put('/users', users.update);
 
-module.exports = router;
+    router.get('/decks', decks.index);
+    router.get('/decks/:id', decks.show);
+    router.post('/decks', decks.create);
+    router.put('/decks', decks.update);
+};

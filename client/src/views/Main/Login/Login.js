@@ -11,14 +11,24 @@ export class Login extends React.Component {
     auth: T.instanceOf(AuthService)
   }
 
+  componentWillMount() {
+      fetch('/users', {
+          'accept' : 'application/json'
+      })
+        .then(res => {
+            console.log('willmount ', res);
+        })
+        .catch(res => {
+            console.log('error: ', res);
+        })
+  }
+
   render() {
     const { auth } = this.props
     return (
       <div>
         <h2>Login</h2>
-        <ButtonToolbar >
           <button onClick={auth.login.bind(this)}>Login</button>
-        </ButtonToolbar>
       </div>
     )
   }

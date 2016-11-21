@@ -1,4 +1,4 @@
-import React, { PropTypes as T } from 'react';w
+import React, { PropTypes as T } from 'react';
 import AuthService from '../../../utils/AuthService';
 
 export class Home extends React.Component {
@@ -24,15 +24,6 @@ export class Home extends React.Component {
 
   componentWillMount() {
 
-      fetch('/users/1', {
-          'accept' : 'application/json'
-      })
-        .then(res => {
-            console.log('willmount ', res);
-        })
-        .catch(res => {
-            console.log('error: ', res);
-        })
   }
 
   logout(){

@@ -41,6 +41,9 @@ class DeckView extends React.Component {
         let types = this.state.sort;
 
         for (let type in types) {
+            if (!types.hasOwnProperty(type)) {
+                break;
+            }
             let cards = [];
             types[type].forEach(card => {
                 cards.push(<li key={card.id}>{card.name}</li>);

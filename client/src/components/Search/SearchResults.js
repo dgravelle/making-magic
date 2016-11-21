@@ -13,8 +13,6 @@ class SearchResults extends React.Component {
     }
 
     render() {
-        let results = [];
-
         return (
             <div className="results-container">
                 {this.props.results.map(card => {

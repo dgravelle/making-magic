@@ -44,6 +44,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('decks');
+    return queryInterface.dropTable('Decks');
   }
 };

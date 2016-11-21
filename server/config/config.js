@@ -1,7 +1,10 @@
+var path = require('path');
+
 module.exports = {
     development : {
         url : 'postgres://dgravelle:password@localhost:5432/making_magic',
         dialect: 'postgrest'
+        // seedPath: path.resolve(__dirname, './seeders')
     },
     production : {
         url : process.env.DATABASE_URL,

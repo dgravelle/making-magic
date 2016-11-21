@@ -2,7 +2,7 @@
 
 module.exports = {
   up: function (queryInterface, Sequelize) {
-      return queryInterface.bulkInsert('decks', [{
+      return queryInterface.bulkInsert('Decks', [{
         title: 'test deck',
         format: 'EDH',
         description: 'just a sample deck',
